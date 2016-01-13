@@ -1,4 +1,4 @@
-# Java BootCamp base folders layout
+# Java BootCamp base folders layout (Edited by Conrado)
 
 Please, use this repository as a base for you training phase. The idea is to
 fork this project so everyone use the same folder structure for the
