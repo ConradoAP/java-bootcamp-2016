@@ -29,6 +29,10 @@ public class DataList {
         return search;
     }
 
+    public void deleteRoot(){
+        root = root.next;
+    }
+
     public int getLength(){
         Data count = root;
         int q = 0;

@@ -21,7 +21,13 @@ public class Data {
         this.price = n;
     }
 
-    public void setQuantity(){
+    public void addQuantity(){
         this.quantity = quantity + 1;
+    }
+
+    public void substractQuantity(){
+        if (quantity > 0) {
+            this.quantity = quantity - 1;
+        }
     }
 }

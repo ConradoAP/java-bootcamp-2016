@@ -6,5 +6,6 @@ package com.Conrado.ShopingCart;
 public interface ShoppingCart {
     public void loadItems();
     public void selectItems(int index);
+    public void cancelSelection(int index);
     public void endPurchase();
 }
