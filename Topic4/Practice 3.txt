@@ -1,0 +1,19 @@
+FROM course c
+
+
+SELECT c.Name as Course, c.Assigned_Teacher, t.Last_Name, t.First_Name, 
+
+       r.Students_ID, s.Registration_Number, s.Last_Name, s.First_Name
+
+
+LEFT JOIN teachers t ON c.Assigned_Teacher = t.Last_Name
+
+LEFT JOIN classroom r ON r.Course = c.Name
+
+LEFT JOIN students s ON r.Students_ID = s.Registration_Number
+
+
+WHERE r.Course = 'Java'
+
+
+ORDER BY s.Last_Name ;
