@@ -1,0 +1,23 @@
+/** To get the percentage of Students that have passed a specific subject (in this case 'Java'):
+
+
+
+mysql> select concat((count(case when c.Final_Grade>=4 then 1 end)/count(c.Course))*100,'%') as Pass_Percentage
+
+    -> from classroom c
+
+    -> where c.Course='Java';
+
+
+
+**/ To change the selected subject, simply change the 'Java' from the "where" sentence for the desired subject.
+
+**/ To get the percentage of Students that failed a subject:
+
+
+
+mysql> select concat((count(case when c.Final_Grade<4 then 1 end)/count(c.Course))*100,'%') as Fail_Percentage
+
+    -> from classroom c
+
+    -> where c.Course='Java';

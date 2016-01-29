@@ -1,0 +1,32 @@
+
+mysql> select t.Last_Name, t.First_Name, concat(s.Day,' ',s.Beginning,' - ',s.End,': ',c.Name)
+
+    -> from teachers t, course c, course_schedule s
+
+    -> where t.Last_Name = c.Assigned_Teacher and c.Name = s.Course;
+
++-----------+------------+------------------------------------------------------
+-+
+| Last_Name | First_Name | concat(s.Day,' ',s.Beginning,' - ',s.End,': ',c.Name)
+ |
++-----------+------------+------------------------------------------------------
+-+
+| Smith     | John       | Monday 08:30:00 - 10:30:00: Java
+ |
+| Smith     | John       | Wednesday 09:00:00 - 11:00:00: Java
+ |
+| Smith     | John       | Friday 10:00:00 - 12:00:00: Java
+ |
+| Carter    | Peter      | Tuesday 10:00:00 - 11:00:00: English
+ |
+| Carter    | Peter      | Thursday 08:30:00 - 09:30:00: English
+ |
+| Black     | Jessica    | Wednesday 09:00:00 - 10:30:00: Maven
+ |
+| Black     | Jessica    | Friday 11:00:00 - 12:30:00: Maven
+ |
++-----------+------------+------------------------------------------------------
+
+To select a specific Course, we should only add "... and c.Name = 'Java';" to the "WHERE" sentence:
+
+    -> where t.Last_Name = c.Assigned_Teacher and c.Name = s.Course and c.Name = 'Java';
