@@ -1,0 +1,2 @@
+
+>db.course.find({ Assigned_Teacher: "Smith"}).sort({ Name: 1})

@@ -1,0 +1,77 @@
+>use high_school
+switched to db high_school
+
+>db.students.insert({Student_id: 01, First_Name: "John", Last_Name: "Morgan", Date_of_Birth: 1990-08-25})
+
+>db.students.insert({Student_id: 02, First_Name: "Oscar", Last_Name: "Reid", Date_of_Birth: 1990-06-13}
+		    {Student_id: 03, First_Name: "Gilbert", Last_Name: "Baxter", Date_of_Birth: 1990-05-02}
+		    {Student_id: 04, First_Name: "Isabelle", Last_Name: "Waters", Date_of_Birth: 1990-07-26}
+		    {Student_id: 05, First_Name: "Eliza", Last_Name: "Holmes", Date_of_Birth: 1991-02-11}
+		    {Student_id: 06, First_Name: "Micah", Last_Name: "Brewer", Date_of_Birth: 1990-10-18}
+		    {Student_id: 07, First_Name: "Andy", Last_Name: "Stokes", Date_of_Birth: 1990-09-07}
+		    {Student_id: 08, First_Name: "Emma", Last_Name: "Booth", Date_of_Birth: 1990-07-22}
+		    {Student_id: 09, First_Name: "Carlos", Last_Name: "Rogers", Date_of_Birth: 1991-01-18}
+		    {Student_id: 10, First_Name: "Lee", Last_Name: "Bruce", Date_of_Birth: 1990-06-14}
+		    {Student_id: 11, First_Name: "Alfred", Last_Name: "Keller", Date_of_Birth: 1990-09-25}
+		    {Student_id: 12, First_Name: "Jacob", Last_Name: "Nash", Date_of_Birth: 1991-02-05}
+		    {Student_id: 13, First_Name: "Anna", Last_Name: "Hill", Date_of_Birth: 1990-06-16}
+		    {Student_id: 14, First_Name: "Laura", Last_Name: "Miller", Date_of_Birth: 1990-11-09}
+		    {Student_id: 15, First_Name: "Stanley", Last_Name: "Kaufman", Date_of_Birth: 1990-07-21}
+		    {Student_id: 16, First_Name: "Louis", Last_Name: "Newman", Date_of_Birth: 1990-12-11})
+
+
+>db.teachers.insert({Teachers_id: 01, First_Name: "John", Last_Name: "Smith", Date_of_Birth: 1984-11-20}
+		    {Teachers_id: 02, First_Name: "Peter", Last_Name: "Carter", Date_of_Birth: 1976-04-15}
+		    {Teachers_id: 03, First_Name: "Jessica", Last_Name: "Black", Date_of_Birth: 1982-07-04})
+
+
+>db.course.insert({Course_id: 01, Name: "Java", Assigned_Teacher: "Smith", Hours_by_Week: 03:00:00,
+		   Schedule_Time: 01:00:00, Schedule: [{Day: "Monday", Beginning: 08:30:00, End: 10:30:00}
+						       {Day: "Wednesday", Beginning: 09:00:00, End: 11:00:00}
+						       {Day: "Friday", Beginning: 10:00:00, End: 12:00:00}] }
+
+		  {Course_id: 02, Name: "English", Assigned_Teacher: "Carter", Hours_by_Week: 02:00:00,
+		   Schedule_Time: 01:00:00, Schedule: [{Day: "Tuesday", Beginning: 10:00:00, End: 11:00:00}
+						       {Day: "Thursday", Beginning: 08:30:00, End: 09:30:00}] }
+
+		  {Course_id: 03, Name: "Maven", Assigned_Teacher: "Black", Hours_by_Week: 03:00:00,
+		   Schedule_Time: 01:30:00, Schedule: [{Day: "Wednesday", Beginning: 09:00:00, End: 10:30:00}
+						       {Day: "Friday", Beginning: 11:00:00, End: 12:30:00}] })
+
+
+>db.classroom.insert({Course_id: "Java", Students: [
+		      { Student_id: 01, Grade_01: 8.75, Grade_02: 7.5, Grade_03: 8, Final_Grade: 7}
+		      { Student_id: 03, Grade_01: 6.5, Grade_02: 4, Grade_03: 2, Final_Grade: 2}
+		      { Student_id: 04, Grade_01: 8, Grade_02: 9, Grade_03: 8.5, Final_Grade: 8}
+		      { Student_id: 05, Grade_01: 2, Grade_02: 2, Grade_03: 2, Final_Grade: 2}
+		      { Student_id: 07, Grade_01: 6.5, Grade_02: 7, Grade_03: 6.5, Final_Grade: 8}
+		      { Student_id: 08, Grade_01: 4, Grade_02: 6, Grade_03: 6, Final_Grade: 4}
+		      { Student_id: 09, Grade_01: 8, Grade_02: 8, Grade_03: 7.5, Final_Grade: 8}
+		      { Student_id: 10, Grade_01: 7.75, Grade_02: 6, Grade_03: 8, Final_Grade: 7}
+		      { Student_id: 12, Grade_01: 6, Grade_02: 6, Grade_03: 4, Final_Grade: 2}
+		      { Student_id: 14, Grade_01: 7, Grade_02: 7, Grade_03: 4, Final_Grade: 6}
+		      { Student_id: 16, Grade_01: 9, Grade_02: 10, Grade_03: 9, Final_Grade: 9}] }
+
+		     {Course_id: "English", Students: [
+		      { Student_id: 02, Grade_01: 9, Grade_02: 10, Grade_03: 9, Final_Grade: 8}
+		      { Student_id: 03, Grade_01: 7, Grade_02: 7, Grade_03: 6, Final_Grade: 6}
+		      { Student_id: 05, Grade_01: 4, Grade_02: 7, Grade_03: 8, Final_Grade: 7}
+		      { Student_id: 06, Grade_01: 8, Grade_02: 9, Grade_03: 9, Final_Grade: 9}
+		      { Student_id: 07, Grade_01: 10, Grade_02: 10, Grade_03: 10, Final_Grade: 10}
+		      { Student_id: 09, Grade_01: 6, Grade_02: 5, Grade_03: 5, Final_Grade: 4}
+		      { Student_id: 10, Grade_01: 4, Grade_02: 6, Grade_03: 7, Final_Grade: 6}
+		      { Student_id: 11, Grade_01: 8, Grade_02: 8, Grade_03: 8, Final_Grade: 8}
+		      { Student_id: 13, Grade_01: 7, Grade_02: 7, Grade_03: 6, Final_Grade: 6}
+		      { Student_id: 15, Grade_01: 6, Grade_02: 6, Grade_03: 4, Final_Grade: 2}] }
+
+		     {Course_id: "Maven", Students: [
+		      { Student_id: 01, Grade_01: 4, Grade_02: 6, Grade_03: 6, Final_Grade: 4}
+		      { Student_id: 04, Grade_01: 7, Grade_02: 7, Grade_03: 6, Final_Grade: 8}
+		      { Student_id: 05, Grade_01: 8, Grade_02: 6, Grade_03: 6, Final_Grade: 4}
+		      { Student_id: 08, Grade_01: 9, Grade_02: 9, Grade_03: 8, Final_Grade: 9}
+		      { Student_id: 09, Grade_01: 6, Grade_02: 4, Grade_03: 2, Final_Grade: 2}
+		      { Student_id: 10, Grade_01: 4, Grade_02: 5, Grade_03: 4, Final_Grade: 6}
+		      { Student_id: 11, Grade_01: 7, Grade_02: 7, Grade_03: 8, Final_Grade: 7}
+		      { Student_id: 12, Grade_01: 8, Grade_02: 7, Grade_03: 7, Final_Grade: 9}
+		      { Student_id: 14, Grade_01: 4, Grade_02: 6, Grade_03: 4, Final_Grade: 8}
+		      { Student_id: 16, Grade_01: 7, Grade_02: 7, Grade_03: 8, Final_Grade: 6}] })

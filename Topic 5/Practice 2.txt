@@ -1,0 +1,2 @@
+
+>db.classroom.find({Course_id: "Java", Students: [{ Final_Grade: {$gte: 4} }] })
