@@ -21,9 +21,48 @@ public class ShoppingCartImp implements ShoppingCart {
                 int id = rs.getInt(1);
                 String item = rs.getString(2);
                 double price = rs.getDouble(3);
-                System.out.println(id + ":" + item + " - $" + price);
+                String category = rs.getString(4);
+                System.out.println(category + " - " + id + ":" + item + " - $" + price);
             }
         } catch (Exception e) {
+            throw e;
+        }
+    }
+    
+    @Override
+    public void findByName(String itemName) throws Exception {
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/shopping_cart?" + "user=ConradoAP&password=Kenny0309");
+            PreparedStatement ps = connection.prepareStatement("select * from items where Item=?");
+            ps.setString(1,itemName);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String item = rs.getString(2);
+                double price = rs.getDouble(3);
+                String category = rs.getString(4);
+                System.out.println(category + " - " + id + ":" + item + " - $" + price);
+            }
+        } catch (Exception e){
+            throw e;
+        }
+    }
+
+    @Override
+    public void findByCategory(String itemCategory) throws Exception {
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/shopping_cart?" + "user=ConradoAP&password=Kenny0309");
+            PreparedStatement ps = connection.prepareStatement("select * from items where Category=?");
+            ps.setString(1,itemCategory);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String item = rs.getString(2);
+                double price = rs.getDouble(3);
+                String category = rs.getString(4);
+                System.out.println(category + " - " + id + ":" + item + " - $" + price);
+            }
+        } catch (Exception e){
             throw e;
         }
     }
