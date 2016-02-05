@@ -28,7 +28,7 @@ public class ShoppingCartImp implements ShoppingCart {
             throw e;
         }
     }
-    
+
     @Override
     public void findByName(String itemName) throws Exception {
         try {
@@ -145,6 +145,18 @@ public class ShoppingCartImp implements ShoppingCart {
                 return false;
             }
         } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @Override
+    public void newCart(String username) throws Exception{
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/shopping_cart?" + "user=ConradoAP&password=Kenny0309");
+            PreparedStatement ps = connection.prepareStatement("truncate table ?");
+            ps.setString(1,username);
+            ps.executeQuery();
+        } catch (Exception e){
             throw e;
         }
     }

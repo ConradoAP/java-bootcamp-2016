@@ -17,5 +17,7 @@ public interface ShoppingCart {
 
     public boolean cancelSelection(String username, int Item_ID, int Quantity) throws Exception;
 
+    public void newCart(String username) throws Exception;
+
     public double endPurchase(String username) throws Exception;
 }
