@@ -5,19 +5,19 @@ package com.Conrado.FinalProyect;
  */
 public interface ShoppingCart {
 
-    public void loadItems() throws Exception;
+    public void loadItems();
 
-    public void findByName(String itemName) throws Exception;
+    public void findByName(String itemName);
 
-    public void findByCategory(String itemCategory) throws Exception;
+    public void findByCategory(String itemCategory);
 
-    public void showCart(String username) throws Exception;
+    public void showCart(String username);
 
-    public void selectItems(String username, int Item_ID, int Quantity) throws Exception;
+    public void selectItems(String username, int Item_ID, int Quantity);
 
-    public boolean cancelSelection(String username, int Item_ID, int Quantity) throws Exception;
+    public boolean cancelSelection(String username, int Item_ID, int Quantity);
 
-    public void newCart(String username) throws Exception;
+    public void newCart(String username);
 
-    public double endPurchase(String username) throws Exception;
+    public double endPurchase(String username);
 }

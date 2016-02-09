@@ -12,7 +12,7 @@ import java.sql.PreparedStatement;
 public class UserAccountImp implements UserAccount {
 
     @Override
-    public String registration(String name, String password) throws Exception {
+    public String registration(String name, String password) {
         try {
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/shopping_cart?" + "user=ConradoAP&password=Kenny0309");
         PreparedStatement ps = connection.prepareStatement("select count(a.Username) from accounts a where a.Username=?");
@@ -31,12 +31,13 @@ public class UserAccountImp implements UserAccount {
                 return "Username Already Exists";
             }
         } catch (Exception e) {
-            throw e;
+            e.printStackTrace();
+            return "Exception Error";
         }
     }
 
     @Override
-    public String logIn(String name, String password) throws Exception {
+    public String logIn(String name, String password) {
         try {
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/accounts?" + "user=ConradoAP&password=Kenny0309");
         PreparedStatement ps = connection.prepareStatement("select count(a.Username) from accounts a where a.Username=?");
@@ -57,12 +58,13 @@ public class UserAccountImp implements UserAccount {
             return "Account Doesn't Exists";
         }
         } catch (Exception e) {
-            throw e;
+            e.printStackTrace();
+            return "Exception Error";
         }
     }
 
     @Override
-    public String deleteAccount(String name, String password) throws Exception {
+    public String deleteAccount(String name, String password) {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/accounts?" + "user=ConradoAP&password=Kenny0309");
             PreparedStatement ps = connection.prepareStatement("select count(a.Username) from accounts a where a.Username=?");
@@ -88,7 +90,8 @@ public class UserAccountImp implements UserAccount {
                 return "Account Doesn't Exists";
             }
         } catch (Exception e) {
-            throw e;
+            e.printStackTrace();
+            return "Exception Error";
         }
     }
 }

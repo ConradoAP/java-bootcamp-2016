@@ -12,7 +12,7 @@ import java.sql.PreparedStatement;
 public class ShoppingCartImp implements ShoppingCart {
 
     @Override
-    public void loadItems() throws Exception {
+    public void loadItems() {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/shopping_cart?" + "user=ConradoAP&password=Kenny0309");
             PreparedStatement ps = connection.prepareStatement("select * from items");
@@ -24,13 +24,13 @@ public class ShoppingCartImp implements ShoppingCart {
                 String category = rs.getString(4);
                 System.out.println(category + " - " + id + ":" + item + " - $" + price);
             }
-        } catch (Exception e) {
-            throw e;
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
     @Override
-    public void findByName(String itemName) throws Exception {
+    public void findByName(String itemName) {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/shopping_cart?" + "user=ConradoAP&password=Kenny0309");
             PreparedStatement ps = connection.prepareStatement("select * from items where Item=?");
@@ -43,13 +43,13 @@ public class ShoppingCartImp implements ShoppingCart {
                 String category = rs.getString(4);
                 System.out.println(category + " - " + id + ":" + item + " - $" + price);
             }
-        } catch (Exception e){
-            throw e;
+        } catch (SQLException e){
+            e.printStackTrace();
         }
     }
 
     @Override
-    public void findByCategory(String itemCategory) throws Exception {
+    public void findByCategory(String itemCategory) {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/shopping_cart?" + "user=ConradoAP&password=Kenny0309");
             PreparedStatement ps = connection.prepareStatement("select * from items where Category=?");
@@ -63,12 +63,12 @@ public class ShoppingCartImp implements ShoppingCart {
                 System.out.println(category + " - " + id + ":" + item + " - $" + price);
             }
         } catch (Exception e){
-            throw e;
+            e.printStackTrace();
         }
     }
 
     @Override
-    public void showCart(String username) throws Exception{
+    public void showCart(String username) {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/shopping_cart?" + "user=ConradoAP&password=Kenny0309");
             PreparedStatement ps = connection.prepareStatement("select * from ?");
@@ -81,12 +81,12 @@ public class ShoppingCartImp implements ShoppingCart {
                 System.out.println(id + ":" + item + " - $" + quantity);
             }
         } catch (Exception e) {
-            throw e;
+            e.printStackTrace();
         }
     }
 
     @Override
-    public void selectItems(String username, int Item_ID, int Quantity) throws Exception {
+    public void selectItems(String username, int Item_ID, int Quantity) {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/shopping_cart?" + "user=ConradoAP&password=Kenny0309");
             PreparedStatement ps1 = connection.prepareStatement("select * from items where Item_ID=?");
@@ -119,12 +119,12 @@ public class ShoppingCartImp implements ShoppingCart {
                 ps3.executeQuery();
             }
         } catch (Exception e) {
-            throw e;
+            e.printStackTrace();
         }
     }
 
     @Override
-    public boolean cancelSelection(String username, int Item_ID, int Quantity) throws Exception {
+    public boolean cancelSelection(String username, int Item_ID, int Quantity) {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/shopping_cart?" + "user=ConradoAP&password=Kenny0309");
             PreparedStatement ps2 = connection.prepareStatement("select * from ? where Item_ID=?");
@@ -145,24 +145,25 @@ public class ShoppingCartImp implements ShoppingCart {
                 return false;
             }
         } catch (Exception e) {
-            throw e;
+            e.printStackTrace();
+            return false;
         }
     }
 
     @Override
-    public void newCart(String username) throws Exception{
+    public void newCart(String username) {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/shopping_cart?" + "user=ConradoAP&password=Kenny0309");
             PreparedStatement ps = connection.prepareStatement("truncate table ?");
             ps.setString(1,username);
             ps.executeQuery();
         } catch (Exception e){
-            throw e;
+            e.printStackTrace();
         }
     }
 
     @Override
-    public double endPurchase(String username) throws Exception {
+    public double endPurchase(String username) {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/shopping_cart?" + "user=ConradoAP&password=Kenny0309");
             PreparedStatement ps = connection.prepareStatement("select u.Item_ID, i.Item_ID, i.Price from ? u, Items i where u.Item_ID=i.Item_ID");
@@ -175,7 +176,8 @@ public class ShoppingCartImp implements ShoppingCart {
             }
             return total;
         } catch (Exception e) {
-            throw e;
+            e.printStackTrace();
+            return 0;
         }
     }
 }
