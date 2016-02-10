@@ -124,7 +124,7 @@ public class ShoppingCartImp implements ShoppingCart {
     }
 
     @Override
-    public boolean cancelSelection(String username, int Item_ID, int Quantity) {
+    public void cancelSelection(String username, int Item_ID, int Quantity) {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/shopping_cart?" + "user=ConradoAP&password=Kenny0309");
             PreparedStatement ps2 = connection.prepareStatement("select * from ? where Item_ID=?");
@@ -139,14 +139,11 @@ public class ShoppingCartImp implements ShoppingCart {
                 ps3.setInt(2, q);
                 ps3.setInt(3, Item_ID);
                 ps3.executeQuery();
-                return true;
             } else {
                 System.out.println("Quantity Value is too Big");
-                return false;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
         }
     }
 
