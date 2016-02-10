@@ -23,14 +23,14 @@ public class UserAccountImp implements UserAccount {
                 PreparedStatement ps1 = connection.prepareStatement("insert into accounts values (default, ?, ?)");
                 ps1.setString(1,name);
                 ps1.setString(2,password);
-                return "Registration Success";
                 PreparedStatement ps2 = connection.prepareStatement("create table ? (Item_ID int,Item varchar(20), Quantity int)");
                 ps2.setString(1,name);
                 ps2.executeQuery();
+                return "Registration Success";
             } else {
                 return "Username Already Exists";
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             return "Exception Error";
         }
@@ -57,7 +57,7 @@ public class UserAccountImp implements UserAccount {
         } else {
             return "Account Doesn't Exists";
         }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             return "Exception Error";
         }
@@ -80,16 +80,16 @@ public class UserAccountImp implements UserAccount {
                     PreparedStatement ps4 = connection.prepareStatement("delete from accounts a where a.Username=?");
                     ps4.setString(1, name);
                     ps4.executeQuery();
-                    return "Account Deleted";
                     PreparedStatement ps5 = connection.prepareStatement("drop table ?");
                     ps5.setString(1,name);
+                    return "Account Deleted";
                 } else {
                     return "Wrong Password";
                 }
             } else {
                 return "Account Doesn't Exists";
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             return "Exception Error";
         }
