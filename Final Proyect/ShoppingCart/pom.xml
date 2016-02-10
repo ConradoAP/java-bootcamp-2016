@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.Conrado.FinalProyect</groupId>
     <artifactId>ShoppingCart</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>ShoppingCart</name>
     <url>http://maven.apache.org</url>
